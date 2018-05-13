@@ -1,0 +1,8 @@
+﻿{
+	"Language":"English",
+	"Entries": [
+		{ "Label" : "signin", "Text" : "Sign In" },
+		{ "Label" : "signup", "Text"  :"Sign Up" },
+		{ "Label" : "remember", "Text" : "Remind me my password" }
+	]
+ }
