@@ -6,11 +6,10 @@ using UnityEngine;
 
 public class LanguageHandler : MonoBehaviour {
 	/* Singleton object to reach easly from all scripts */
-	public LanguageHandler singleton = null;
+	public static LanguageHandler singleton = null;
 
 	/* Member data variables */
-	string currentLanguage = Global.DEFAULT_LANGUAGE;
-	List<LanguageData> languageData = null;
+	static List<LanguageData> languageData = null;
 	static Entry[] entries = null;
 
 
@@ -55,7 +54,6 @@ public class LanguageHandler : MonoBehaviour {
 		/* Search and return matched label */
 		if (entries != null) {
 			foreach (Entry entry in entries) {
-				print(entry + " " + label);
 				if (entry.Label == label) {
 					return entry.Text;
 				}
@@ -70,7 +68,7 @@ public class LanguageHandler : MonoBehaviour {
 
 
 	/* Function to change the language and entries */
-	public void ChangeLanguage(string newLanguage) {
+	public static void ChangeLanguage(string newLanguage) {
 		/* Finding language data from list */
 		foreach (LanguageData data in languageData) {
 			if (data.Language == newLanguage) {

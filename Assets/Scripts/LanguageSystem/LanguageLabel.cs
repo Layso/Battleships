@@ -4,17 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class LanguageLabel : MonoBehaviour {
+	/* Public tag to set label from editor */
 	public string label;
 
 
-	// Use this for initialization
-	void Start () {
 
-		Text text = GetComponent<Text>();
-		text.text = LanguageHandler.GetLabel(label);
-	}
-	
-	// Update is called once per frame
-	void Update () {
+	/* Function to update the attached text of the label */
+	public void UpdateLabel () {
+		GetComponent<Text>().text = LanguageHandler.GetLabel(label);
 	}
 }

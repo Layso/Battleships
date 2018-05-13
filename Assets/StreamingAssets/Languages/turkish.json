@@ -1,0 +1,8 @@
+﻿{
+	"Language":"Turkish",
+	"Entries": [
+		{ "Label" : "signin", "Text" : "Giriş Yap" },
+		{ "Label" : "signup", "Text"  :"Kayıt Ol" },
+		{ "Label" : "remember", "Text" : "Şifreyi Hatırlat" }
+	]
+ }
