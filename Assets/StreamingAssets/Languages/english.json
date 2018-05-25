@@ -1,8 +1,73 @@
 ﻿{
 	"Language":"English",
 	"Entries": [
-		{ "Label" : "signin", "Text" : "Sign In" },
-		{ "Label" : "signup", "Text"  :"Sign Up" },
-		{ "Label" : "remember", "Text" : "Remind me my password" }
+		{
+			"Label" : "signup-title",
+			"Text" : "Register"
+		},
+
+		{
+			"Label" : "signup-placeholder-mail",
+			"Text" : "E-Mail"
+		},
+		{
+			"Label" : "signup-placeholder-mail-confirm",
+			"Text" : "Confirm E-Mail"
+		},
+		{
+			"Label" : "signup-placeholder-pass",
+			"Text" : "Password"
+		},
+		{
+			"Label" : "signup-apply",
+			"Text" : "Count me in!"
+		},
+
+
+		{
+			"Label" : "signin-title",
+			"Text" : "Sign In"
+		},
+
+		{
+			"Label" : "signin-placeholder-mail",
+			"Text" : "E-Mail"
+		},
+		{
+			"Label" : "signin-placeholder-pass",
+			"Text" : "Password"
+		},
+		{
+			"Label" : "signin-apply",
+			"Text" : "Let me in!"
+		},
+
+
+		{
+			"Label" : "rememberence-title",
+			"Text" : "Forgotten Password"
+		},
+		{
+			"Label" : "rememberence-placeholder-mail",
+			"Text" : "E-Mail"
+		},
+		{
+			"Label" : "rememberence-apply",
+			"Text" : "Reset my password"
+		},
+
+
+		{
+			"Label" : "navigation-signup",
+			"Text" : "Sign Up"
+		},
+		{
+			"Label" : "navigation-signin",
+			"Text"  :"Sign In"
+		},
+		{
+			"Label" : "navigation-rememberence",
+			"Text" : "Reset Pass"
+		}
 	]
  }

@@ -1,8 +1,72 @@
 ﻿{
-	"Language":"Turkish",
+	"Language":"Türkçe",
 	"Entries": [
-		{ "Label" : "signin", "Text" : "Giriş Yap" },
-		{ "Label" : "signup", "Text"  :"Kayıt Ol" },
-		{ "Label" : "remember", "Text" : "Şifreyi Hatırlat" }
+		{
+			"Label" : "signup-title",
+			"Text" : "Kayıt Ol"
+		},
+
+		{
+			"Label" : "signup-placeholder-mail",
+			"Text" : "E-Posta"
+		},
+		{
+			"Label" : "signup-placeholder-mail-confirm",
+			"Text" : "E-Posta Onayı"
+		},
+		{
+			"Label" : "signup-placeholder-pass",
+			"Text" : "Parola"
+		},
+		{
+			"Label" : "signup-apply",
+			"Text" : "Beni de kat!"
+		},
+
+
+		{
+			"Label" : "signin-title",
+			"Text" : "Giriş Yap"
+		},
+		{
+			"Label" : "signin-placeholder-mail",
+			"Text" : "E-Posta"
+		},
+		{
+			"Label" : "signin-placeholder-pass",
+			"Text" : "Parola"
+		},
+		{
+			"Label" : "signin-apply",
+			"Text" : "Giriş yap!"
+		},
+
+
+		{
+			"Label" : "rememberence-title",
+			"Text" : "Parolamı Unuttum"
+		},
+		{
+			"Label" : "rememberence-placeholder-mail",
+			"Text" : "E-Posta"
+		},
+		{
+			"Label" : "rememberence-apply",
+			"Text" : "Parolamı sıfırla"
+		},
+
+
+		{
+			"Label" : "navigation-signup",
+			"Text" : "Kayıt"
+		},
+		{
+			"Label" : "navigation-signin",
+			"Text"  :"Giriş"
+		},
+		{
+			"Label" : "navigation-rememberence",
+			"Text" : "Parola Sıfırla"
+		}
 	]
  }
