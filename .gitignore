@@ -34,3 +34,210 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/Editor Default Resources/Firebase/fb_analytics.png
+Assets/Editor Default Resources/Firebase/fb_analytics.png.meta
+Assets/Editor Default Resources/Firebase/fb_analytics_dark.png
+Assets/Editor Default Resources/Firebase/fb_analytics_dark.png.meta
+Assets/Editor Default Resources/Firebase/fb_auth.png
+Assets/Editor Default Resources/Firebase/fb_auth.png.meta
+Assets/Editor Default Resources/Firebase/fb_auth_dark.png
+Assets/Editor Default Resources/Firebase/fb_auth_dark.png.meta
+Assets/Editor Default Resources/Firebase/fb_cloud_messaging.png
+Assets/Editor Default Resources/Firebase/fb_cloud_messaging.png.meta
+Assets/Editor Default Resources/Firebase/fb_cloud_messaging_dark.png
+Assets/Editor Default Resources/Firebase/fb_cloud_messaging_dark.png.meta
+Assets/Editor Default Resources/Firebase/fb_config.png
+Assets/Editor Default Resources/Firebase/fb_config.png.meta
+Assets/Editor Default Resources/Firebase/fb_config_dark.png
+Assets/Editor Default Resources/Firebase/fb_config_dark.png.meta
+Assets/Editor Default Resources/Firebase/fb_database.png
+Assets/Editor Default Resources/Firebase/fb_database.png.meta
+Assets/Editor Default Resources/Firebase/fb_database_dark.png
+Assets/Editor Default Resources/Firebase/fb_database_dark.png.meta
+Assets/Editor Default Resources/Firebase/fb_dynamic_links.png
+Assets/Editor Default Resources/Firebase/fb_dynamic_links.png.meta
+Assets/Editor Default Resources/Firebase/fb_dynamic_links_dark.png
+Assets/Editor Default Resources/Firebase/fb_dynamic_links_dark.png.meta
+Assets/Editor Default Resources/Firebase/fb_invites.png
+Assets/Editor Default Resources/Firebase/fb_invites.png.meta
+Assets/Editor Default Resources/Firebase/fb_invites_dark.png
+Assets/Editor Default Resources/Firebase/fb_invites_dark.png.meta
+Assets/Editor Default Resources/Firebase/fb_storage.png
+Assets/Editor Default Resources/Firebase/fb_storage.png.meta
+Assets/Editor Default Resources/Firebase/fb_storage_dark.png
+Assets/Editor Default Resources/Firebase/fb_storage_dark.png.meta
+Assets/Editor Default Resources/Firebase/firebase_lockup.png
+Assets/Editor Default Resources/Firebase/firebase_lockup.png.meta
+Assets/Editor Default Resources/Firebase/firebase_lockup_dark.png
+Assets/Editor Default Resources/Firebase/firebase_lockup_dark.png.meta
+Assets/Editor Default Resources/Firebase.meta
+Assets/Firebase/Editor/AppDependencies.xml
+Assets/Firebase/Editor/AppDependencies.xml.meta
+Assets/Firebase/Editor/AuthDependencies.xml
+Assets/Firebase/Editor/AuthDependencies.xml.meta
+Assets/Firebase/Editor/Firebase.Editor.dll.meta
+Assets/Firebase/Editor/FirebaseAuth_v4.5.2_manifest.txt
+Assets/Firebase/Editor/FirebaseAuth_v4.5.2_manifest.txt.meta
+Assets/Firebase/Editor/FirebaseDatabase_v4.5.2_manifest.txt
+Assets/Firebase/Editor/FirebaseDatabase_v4.5.2_manifest.txt.meta
+Assets/Firebase/Editor/generate_xml_from_google_services_json.exe.meta
+Assets/Firebase/Editor/generate_xml_from_google_services_json.py
+Assets/Firebase/Editor/generate_xml_from_google_services_json.py.meta
+Assets/Firebase/m2repository/com/google/firebase/firebase-app-unity/4.5.2/firebase-app-unity-4.5.2.pom
+Assets/Firebase/m2repository/com/google/firebase/firebase-app-unity/4.5.2/firebase-app-unity-4.5.2.pom.meta
+Assets/Firebase/m2repository/com/google/firebase/firebase-app-unity/4.5.2/firebase-app-unity-4.5.2.srcaar
+Assets/Firebase/m2repository/com/google/firebase/firebase-app-unity/4.5.2/firebase-app-unity-4.5.2.srcaar.meta
+Assets/Firebase/m2repository/com/google/firebase/firebase-app-unity/4.5.2.meta
+Assets/Firebase/m2repository/com/google/firebase/firebase-app-unity/maven-metadata.xml
+Assets/Firebase/m2repository/com/google/firebase/firebase-app-unity/maven-metadata.xml.meta
+Assets/Firebase/m2repository/com/google/firebase/firebase-auth-unity/4.5.2/firebase-auth-unity-4.5.2.pom
+Assets/Firebase/m2repository/com/google/firebase/firebase-auth-unity/4.5.2/firebase-auth-unity-4.5.2.pom.meta
+Assets/Firebase/m2repository/com/google/firebase/firebase-auth-unity/4.5.2/firebase-auth-unity-4.5.2.srcaar
+Assets/Firebase/m2repository/com/google/firebase/firebase-auth-unity/4.5.2/firebase-auth-unity-4.5.2.srcaar.meta
+Assets/Firebase/m2repository/com/google/firebase/firebase-auth-unity/4.5.2.meta
+Assets/Firebase/m2repository/com/google/firebase/firebase-auth-unity/maven-metadata.xml
+Assets/Firebase/m2repository/com/google/firebase/firebase-auth-unity/maven-metadata.xml.meta
+Assets/Firebase/m2repository/com/google/firebase/firebase-app-unity.meta
+Assets/Firebase/m2repository/com/google/firebase/firebase-auth-unity.meta
+Assets/Firebase/m2repository/com/google/firebase.meta
+Assets/Firebase/m2repository/com/google.meta
+Assets/Firebase/m2repository/com.meta
+Assets/Firebase/Plugins/Http/link.xml
+Assets/Firebase/Plugins/Http/link.xml.meta
+Assets/Firebase/Plugins/iOS/Firebase.App.dll.meta
+Assets/Firebase/Plugins/iOS/Firebase.Auth.dll.meta
+Assets/Firebase/Plugins/Firebase.App.dll.meta
+Assets/Firebase/Plugins/Firebase.Auth.dll.meta
+Assets/Firebase/Plugins/Firebase.Database.dll.meta
+Assets/Firebase/Plugins/Firebase.Platform.dll.meta
+Assets/Firebase/Plugins/Google.MiniJson.dll.meta
+Assets/Firebase/Plugins/Google.Sharpen.dll.meta
+Assets/Firebase/Plugins/Http.meta
+Assets/Firebase/Plugins/iOS.meta
+Assets/Firebase/Plugins/link.xml
+Assets/Firebase/Plugins/link.xml.meta
+Assets/Firebase/Editor.meta
+Assets/Firebase/m2repository.meta
+Assets/Firebase/Plugins.meta
+Assets/Parse/Plugins/dotNet45/Unity.Compat.dll.meta
+Assets/Parse/Plugins/dotNet45/Unity.Tasks.dll.meta
+Assets/Parse/Plugins/dotNet45.meta
+Assets/Parse/Plugins/Unity.Compat.dll.meta
+Assets/Parse/Plugins/Unity.Tasks.dll.meta
+Assets/Parse/Plugins.meta
+Assets/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.64.0.dll.meta
+Assets/PlayServicesResolver/Editor/Google.JarResolver_v1.2.64.0.dll.meta
+Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll.meta
+Assets/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.64.0.dll.meta
+Assets/PlayServicesResolver/Editor/play-services-resolver_v1.2.64.0.txt
+Assets/PlayServicesResolver/Editor/play-services-resolver_v1.2.64.0.txt.meta
+Assets/PlayServicesResolver/Editor.meta
+Assets/Plugins/Android/com.google.firebase.firebase-common-12.0.1/libs/classes.jar
+Assets/Plugins/Android/com.google.firebase.firebase-common-12.0.1/libs/classes.jar.meta
+Assets/Plugins/Android/com.google.firebase.firebase-common-12.0.1/AndroidManifest.xml
+Assets/Plugins/Android/com.google.firebase.firebase-common-12.0.1/AndroidManifest.xml.meta
+Assets/Plugins/Android/com.google.firebase.firebase-common-12.0.1/libs.meta
+Assets/Plugins/Android/com.google.firebase.firebase-common-12.0.1/project.properties
+Assets/Plugins/Android/com.google.firebase.firebase-common-12.0.1/project.properties.meta
+Assets/Plugins/Android/com.google.firebase.firebase-common-12.0.1/res.meta
+Assets/Plugins/Android/com.google.firebase.firebase-core-12.0.1/libs/classes.jar
+Assets/Plugins/Android/com.google.firebase.firebase-core-12.0.1/libs/classes.jar.meta
+Assets/Plugins/Android/com.google.firebase.firebase-core-12.0.1/AndroidManifest.xml
+Assets/Plugins/Android/com.google.firebase.firebase-core-12.0.1/AndroidManifest.xml.meta
+Assets/Plugins/Android/com.google.firebase.firebase-core-12.0.1/libs.meta
+Assets/Plugins/Android/com.google.firebase.firebase-core-12.0.1/project.properties
+Assets/Plugins/Android/com.google.firebase.firebase-core-12.0.1/project.properties.meta
+Assets/Plugins/Android/com.google.firebase.firebase-core-12.0.1/R.txt
+Assets/Plugins/Android/com.google.firebase.firebase-core-12.0.1/R.txt.meta
+Assets/Plugins/Android/com.google.firebase.firebase-iid-12.0.1/libs/classes.jar
+Assets/Plugins/Android/com.google.firebase.firebase-iid-12.0.1/libs/classes.jar.meta
+Assets/Plugins/Android/com.google.firebase.firebase-iid-12.0.1/AndroidManifest.xml
+Assets/Plugins/Android/com.google.firebase.firebase-iid-12.0.1/AndroidManifest.xml.meta
+Assets/Plugins/Android/com.google.firebase.firebase-iid-12.0.1/libs.meta
+Assets/Plugins/Android/com.google.firebase.firebase-iid-12.0.1/project.properties
+Assets/Plugins/Android/com.google.firebase.firebase-iid-12.0.1/project.properties.meta
+Assets/Plugins/Android/com.google.firebase.firebase-iid-12.0.1/res.meta
+Assets/Plugins/Android/Firebase/AndroidManifest.xml
+Assets/Plugins/Android/Firebase/AndroidManifest.xml.meta
+Assets/Plugins/Android/Firebase/project.properties
+Assets/Plugins/Android/Firebase/project.properties.meta
+Assets/Plugins/Android/android.arch.core.common-1.0.0.jar
+Assets/Plugins/Android/android.arch.core.common-1.0.0.jar.meta
+Assets/Plugins/Android/android.arch.lifecycle.common-1.0.0.jar
+Assets/Plugins/Android/android.arch.lifecycle.common-1.0.0.jar.meta
+Assets/Plugins/Android/android.arch.lifecycle.runtime-1.0.0.aar
+Assets/Plugins/Android/android.arch.lifecycle.runtime-1.0.0.aar.meta
+Assets/Plugins/Android/com.android.support.support-annotations-26.1.0.jar
+Assets/Plugins/Android/com.android.support.support-annotations-26.1.0.jar.meta
+Assets/Plugins/Android/com.android.support.support-compat-26.1.0.aar
+Assets/Plugins/Android/com.android.support.support-compat-26.1.0.aar.meta
+Assets/Plugins/Android/com.android.support.support-core-ui-26.1.0.aar
+Assets/Plugins/Android/com.android.support.support-core-ui-26.1.0.aar.meta
+Assets/Plugins/Android/com.android.support.support-core-utils-26.1.0.aar
+Assets/Plugins/Android/com.android.support.support-core-utils-26.1.0.aar.meta
+Assets/Plugins/Android/com.android.support.support-fragment-26.1.0.aar
+Assets/Plugins/Android/com.android.support.support-fragment-26.1.0.aar.meta
+Assets/Plugins/Android/com.android.support.support-media-compat-26.1.0.aar
+Assets/Plugins/Android/com.android.support.support-media-compat-26.1.0.aar.meta
+Assets/Plugins/Android/com.android.support.support-v4-26.1.0.aar
+Assets/Plugins/Android/com.android.support.support-v4-26.1.0.aar.meta
+Assets/Plugins/Android/com.google.android.gms.play-services-base-12.0.1.aar
+Assets/Plugins/Android/com.google.android.gms.play-services-base-12.0.1.aar.meta
+Assets/Plugins/Android/com.google.android.gms.play-services-base-license-12.0.1.aar
+Assets/Plugins/Android/com.google.android.gms.play-services-base-license-12.0.1.aar.meta
+Assets/Plugins/Android/com.google.android.gms.play-services-basement-12.0.1.aar
+Assets/Plugins/Android/com.google.android.gms.play-services-basement-12.0.1.aar.meta
+Assets/Plugins/Android/com.google.android.gms.play-services-basement-license-12.0.1.aar
+Assets/Plugins/Android/com.google.android.gms.play-services-basement-license-12.0.1.aar.meta
+Assets/Plugins/Android/com.google.android.gms.play-services-tasks-12.0.1.aar
+Assets/Plugins/Android/com.google.android.gms.play-services-tasks-12.0.1.aar.meta
+Assets/Plugins/Android/com.google.android.gms.play-services-tasks-license-12.0.1.aar
+Assets/Plugins/Android/com.google.android.gms.play-services-tasks-license-12.0.1.aar.meta
+Assets/Plugins/Android/com.google.firebase.firebase-analytics-12.0.1.aar
+Assets/Plugins/Android/com.google.firebase.firebase-analytics-12.0.1.aar.meta
+Assets/Plugins/Android/com.google.firebase.firebase-analytics-impl-12.0.1.aar
+Assets/Plugins/Android/com.google.firebase.firebase-analytics-impl-12.0.1.aar.meta
+Assets/Plugins/Android/com.google.firebase.firebase-analytics-impl-license-12.0.1.aar
+Assets/Plugins/Android/com.google.firebase.firebase-analytics-impl-license-12.0.1.aar.meta
+Assets/Plugins/Android/com.google.firebase.firebase-analytics-license-12.0.1.aar
+Assets/Plugins/Android/com.google.firebase.firebase-analytics-license-12.0.1.aar.meta
+Assets/Plugins/Android/com.google.firebase.firebase-app-unity-4.5.2.aar
+Assets/Plugins/Android/com.google.firebase.firebase-app-unity-4.5.2.aar.meta
+Assets/Plugins/Android/com.google.firebase.firebase-auth-12.0.1.aar
+Assets/Plugins/Android/com.google.firebase.firebase-auth-12.0.1.aar.meta
+Assets/Plugins/Android/com.google.firebase.firebase-auth-license-12.0.1.aar
+Assets/Plugins/Android/com.google.firebase.firebase-auth-license-12.0.1.aar.meta
+Assets/Plugins/Android/com.google.firebase.firebase-auth-unity-4.5.2.aar
+Assets/Plugins/Android/com.google.firebase.firebase-auth-unity-4.5.2.aar.meta
+Assets/Plugins/Android/com.google.firebase.firebase-common-12.0.1.meta
+Assets/Plugins/Android/com.google.firebase.firebase-common-license-12.0.1.aar
+Assets/Plugins/Android/com.google.firebase.firebase-common-license-12.0.1.aar.meta
+Assets/Plugins/Android/com.google.firebase.firebase-core-12.0.1.meta
+Assets/Plugins/Android/com.google.firebase.firebase-iid-12.0.1.meta
+Assets/Plugins/Android/com.google.firebase.firebase-iid-license-12.0.1.aar
+Assets/Plugins/Android/com.google.firebase.firebase-iid-license-12.0.1.aar.meta
+Assets/Plugins/Android/Firebase.meta
+Assets/Plugins/iOS/Firebase/libApp.a
+Assets/Plugins/iOS/Firebase/libApp.a.meta
+Assets/Plugins/iOS/Firebase/libAuth.a
+Assets/Plugins/iOS/Firebase/libAuth.a.meta
+Assets/Plugins/iOS/Firebase.meta
+Assets/Plugins/x86_64/Firebase/App-4.5.2.bundle
+Assets/Plugins/x86_64/Firebase/App-4.5.2.bundle.meta
+Assets/Plugins/x86_64/Firebase/App-4.5.2.dll.meta
+Assets/Plugins/x86_64/Firebase/App-4.5.2.so
+Assets/Plugins/x86_64/Firebase/App-4.5.2.so.meta
+Assets/Plugins/x86_64/Firebase/Auth.bundle
+Assets/Plugins/x86_64/Firebase/Auth.bundle.meta
+Assets/Plugins/x86_64/Firebase/Auth.dll.meta
+Assets/Plugins/x86_64/Firebase/Auth.so
+Assets/Plugins/x86_64/Firebase/Auth.so.meta
+Assets/Plugins/x86_64/Firebase.meta
+Assets/Plugins/Android.meta
+Assets/Plugins/iOS.meta
+Assets/Plugins/x86_64.meta
+Assets/Editor Default Resources.meta
+Assets/Firebase.meta
+Assets/Parse.meta
+Assets/PlayServicesResolver.meta
+Assets/Plugins.meta
