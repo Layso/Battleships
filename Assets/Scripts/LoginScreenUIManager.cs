@@ -23,10 +23,63 @@ public class LoginScreenUIManager : MonoBehaviour {
 
 	/*  */
 	public void SignUpButton() {
-		InputField[] fields = FindObjectsOfType<InputField>();
+		string email;
+		string password;
+		string emailConfirm;
 
-		foreach (InputField field in fields)
-			print(field.text);
+		// Constant definitions
+		const int EMAIL_INDEX = 0;
+		const int CONFIRMATION_INDEX = 1;
+		const int PASSWORD_INDEX = 2;
+		const int PASSWORD_MIN = 8;
+		const int PASSWORD_MAX = 25;
+		const string REQUIRED_CHAR_1 = "@";
+		const string REQUIRED_CHAR_2 = ".";
+
+
+		// Getting InputField strings to local variables
+		InputField[] fields = FindObjectsOfType<InputField>();
+		email = fields[EMAIL_INDEX].text.ToLower();
+		password = fields[PASSWORD_INDEX].text.ToLower();
+		emailConfirm = fields[CONFIRMATION_INDEX].text.ToLower();
+
+		// Validating mail and password format
+		// Emails must be equal
+		if (!email.Equals(emailConfirm)) {
+			print("fail");
+		}
+
+		// There must be only one '@' character for a valid mail address
+		else if (!email.Contains(REQUIRED_CHAR_1) || email.IndexOf(REQUIRED_CHAR_1) != email.LastIndexOf(REQUIRED_CHAR_1)) {
+			print("fail");
+		}
+
+		// There must be only one '.' character for a valid mail address
+		else if (!email.Contains(REQUIRED_CHAR_2) || email.IndexOf(REQUIRED_CHAR_2) != email.LastIndexOf(REQUIRED_CHAR_2)) {
+			print("fail");
+		}
+
+		// '.' character can not be behind the '@' character in a mail address
+		else if (email.LastIndexOf(REQUIRED_CHAR_2) < email.IndexOf(REQUIRED_CHAR_1)) {
+			print("fail");
+		}
+
+		// '.' character can not be at the end of address
+		else if (email.EndsWith(REQUIRED_CHAR_2)) {
+			print("fail");
+		}
+
+		// Password must be between 8 and 25 characters
+		else if (password.Length < PASSWORD_MIN || password.Length > PASSWORD_MAX) {
+			print("fail");
+		}
+
+		// TODO: More checks for password
+
+
+		else {
+			print("success");
+		}
 	}
 
 
@@ -34,7 +87,7 @@ public class LoginScreenUIManager : MonoBehaviour {
 	/*  */
 	public void SignInButton()
 	{
-
+		print("Signing up");
 	}
 
 
@@ -42,7 +95,7 @@ public class LoginScreenUIManager : MonoBehaviour {
 	/*  */
 	public void PasswordResetButton()
 	{
-
+		print("Rememberence");
 	}
 
 
