@@ -20,7 +20,7 @@
 		},
 		{
 			"Label" : "signup-apply",
-			"Text" : "Count me in!"
+			"Text" : "Sign Up"
 		},
 
 
@@ -39,7 +39,7 @@
 		},
 		{
 			"Label" : "signin-apply",
-			"Text" : "Let me in!"
+			"Text" : "Log In"
 		},
 
 
@@ -53,7 +53,7 @@
 		},
 		{
 			"Label" : "rememberence-apply",
-			"Text" : "Reset my password"
+			"Text" : "Reset My Password"
 		},
 
 

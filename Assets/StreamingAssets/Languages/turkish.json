@@ -20,7 +20,7 @@
 		},
 		{
 			"Label" : "signup-apply",
-			"Text" : "Beni de kat!"
+			"Text" : "Kayıt Ol"
 		},
 
 
@@ -38,7 +38,7 @@
 		},
 		{
 			"Label" : "signin-apply",
-			"Text" : "Giriş yap!"
+			"Text" : "Giriş Yap"
 		},
 
 
@@ -52,7 +52,7 @@
 		},
 		{
 			"Label" : "rememberence-apply",
-			"Text" : "Parolamı sıfırla"
+			"Text" : "Parolamı Sıfırla"
 		},
 
 

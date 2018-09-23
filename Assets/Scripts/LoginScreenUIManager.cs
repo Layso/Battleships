@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class LoginScreenUIManager : MonoBehaviour {
 	/* Public UI items to make it possible to attach from editor */
 	public Dropdown languageSelectionDropdown;
-
+	public GameObject registerPanel;
+	public GameObject loginPanel;
+	public GameObject rememberPanel;
 
 
 	// Use this for initialization
 	void Start () {
 		ChangeLanguage();
+		WelcomeScreen();
 	}
 	
 	// Update is called once per frame
@@ -110,6 +114,22 @@ public class LoginScreenUIManager : MonoBehaviour {
 		/* Updating each label */
 		foreach(LanguageLabel label in labels) {
 			label.UpdateLabel();
+		}
+	}
+
+	/* Function to decide welcoming panel */
+	public void WelcomeScreen() {
+		/* Search for log file to see if there is any previous login attempts */
+		if (File.Exists (Global.LOG_FILE_NAME)) {
+			loginPanel.SetActive (true);
+			registerPanel.SetActive (false);
+			rememberPanel.SetActive (false);
+		}
+
+		else {
+			registerPanel.SetActive (true);
+			loginPanel.SetActive (false);
+			rememberPanel.SetActive (false);
 		}
 	}
 }

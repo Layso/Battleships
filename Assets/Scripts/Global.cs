@@ -3,4 +3,5 @@
 	public static string DEFAULT_LANGUAGE = Languages[0];
 	public static string LANGUAGE_FOLDER_NAME = "Languages";
 	public static string JSON_EXTENSION = ".json";
+	public static string LOG_FILE_NAME = "login.log";
 }
