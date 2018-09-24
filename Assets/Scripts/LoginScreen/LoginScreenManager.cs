@@ -15,10 +15,6 @@ public class LoginScreenManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if (singleton == null)
-			print ("anan");
-		else
-			print ("baban");
 	}
 	
 	// Update is called once per frame

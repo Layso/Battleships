@@ -11,11 +11,6 @@ public class LoginScreenUIManager : MonoBehaviour {
 	public GameObject loginPanel;
 	public GameObject rememberPanel;
 
-	// Constant definitions
-	const int EMAIL_INDEX = 0;
-	const int CONFIRMATION_INDEX = 1;
-	const int PASSWORD_INDEX = 2;
-
 
 
 	// Use this for initialization
@@ -37,6 +32,11 @@ public class LoginScreenUIManager : MonoBehaviour {
 		string password;
 		string emailConfirm;
 
+		// Constant definitions
+		const int EMAIL_INDEX = 0;
+		const int CONFIRMATION_INDEX = 1;
+		const int PASSWORD_INDEX = 2;
+
 
 		// Getting InputField strings to local variables
 		InputField[] fields = FindObjectsOfType<InputField>();
@@ -55,6 +55,10 @@ public class LoginScreenUIManager : MonoBehaviour {
 		string email;
 		string password;
 
+		// Constant definitions
+		const int EMAIL_INDEX = 0;
+		const int PASSWORD_INDEX = 1;
+
 
 		// Getting InputField strings to local variables
 		InputField[] fields = FindObjectsOfType<InputField>();
@@ -70,6 +74,9 @@ public class LoginScreenUIManager : MonoBehaviour {
 	/* Button event function */
 	public void PasswordResetButton() {
 		string email;
+
+		// Constant definitions
+		const int EMAIL_INDEX = 0;
 
 
 		// Getting InputField strings to local variables
