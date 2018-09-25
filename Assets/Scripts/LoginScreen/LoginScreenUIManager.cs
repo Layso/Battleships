@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 
+
+
 public class LoginScreenUIManager : MonoBehaviour {
 	/* Public UI items to make it possible to attach from editor */
 	public Dropdown languageSelectionDropdown;
@@ -14,13 +16,13 @@ public class LoginScreenUIManager : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	void Start() {
 		ChangeLanguage();
 		WelcomeScreen();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update() {
 		
 	}
 
@@ -45,7 +47,7 @@ public class LoginScreenUIManager : MonoBehaviour {
 		emailConfirm = fields[CONFIRMATION_INDEX].text.ToLower();
 
 		// Calling propriate function from manager
-		LoginScreenManager.singleton.SignUp (email, emailConfirm, password);
+		LoginScreenManager.singleton.SignUp(email, emailConfirm, password);
 	}
 
 
@@ -97,7 +99,7 @@ public class LoginScreenUIManager : MonoBehaviour {
 
 
 		/* Updating each label */
-		foreach(LanguageLabel label in labels) {
+		foreach (LanguageLabel label in labels) {
 			label.UpdateLabel();
 		}
 	}
@@ -107,16 +109,15 @@ public class LoginScreenUIManager : MonoBehaviour {
 	/* Function to decide welcoming panel */
 	public void WelcomeScreen() {
 		/* Search for log file to see if there is any previous login attempts */
-		if (File.Exists (Global.LOG_FILE_NAME)) {
-			loginPanel.SetActive (true);
-			registerPanel.SetActive (false);
-			rememberPanel.SetActive (false);
+		if (File.Exists(Global.LOG_FILE_NAME)) {
+			loginPanel.SetActive(true);
+			registerPanel.SetActive(false);
+			rememberPanel.SetActive(false);
 		}
-
 		else {
-			registerPanel.SetActive (true);
-			loginPanel.SetActive (false);
-			rememberPanel.SetActive (false);
+			registerPanel.SetActive(true);
+			loginPanel.SetActive(false);
+			rememberPanel.SetActive(false);
 		}
 	}
 }

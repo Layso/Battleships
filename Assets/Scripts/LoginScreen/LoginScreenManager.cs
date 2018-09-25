@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class LoginScreenManager : MonoBehaviour {
 	public static LoginScreenManager singleton = null;
+	public PopUpPanel popUpPanel;
+
 
 
 	void Awake() {
@@ -14,11 +18,11 @@ public class LoginScreenManager : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void Start () {
+	void Start() {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update() {
 		
 	}
 
@@ -28,47 +32,50 @@ public class LoginScreenManager : MonoBehaviour {
 	public void SignUp(string email, string emailConfirm, string password) {
 		const int PASSWORD_MIN = 8;
 		const int PASSWORD_MAX = 25;
-		const string REQUIRED_CHAR_1 = "@";
+		const string AT_CHARACTER = "@";
 		const string REQUIRED_CHAR_2 = ".";
 
 
 		// Validating mail and password format
-		// Emails must be equal
-		if (!email.Equals(emailConfirm)) {
-			print("fail");
-		}
-
 		// There must be only one '@' character for a valid mail address
-		else if (!email.Contains(REQUIRED_CHAR_1) || email.IndexOf(REQUIRED_CHAR_1) != email.LastIndexOf(REQUIRED_CHAR_1)) {
+		if (!email.Contains(AT_CHARACTER) || email.IndexOf(AT_CHARACTER) != email.LastIndexOf(AT_CHARACTER)) {
+			if (!popUpPanel.Online())
+				popUpPanel.SetText("deneme").SetColor(Color.cyan).Activate();
+			//GameObject.Instantiate ("PopUpPanel");
 			print("fail");
 		}
 
 		// There must be only one '.' character for a valid mail address
 		else if (!email.Contains(REQUIRED_CHAR_2) || email.IndexOf(REQUIRED_CHAR_2) != email.LastIndexOf(REQUIRED_CHAR_2)) {
-			print("fail");
-		}
+				print("fail");
+			}
 
 		// '.' character can not be behind the '@' character in a mail address
-		else if (email.LastIndexOf(REQUIRED_CHAR_2) < email.IndexOf(REQUIRED_CHAR_1)) {
-			print("fail");
-		}
+		else if (email.LastIndexOf(REQUIRED_CHAR_2) < email.IndexOf(AT_CHARACTER)) {
+					print("fail");
+				}
 
 		// '.' character can not be at the end of address
 		else if (email.EndsWith(REQUIRED_CHAR_2)) {
-			print("fail");
-		}
+						print("fail");
+					}
+
+		// Emails must be equal
+		else if (!email.Equals(emailConfirm)) {
+							print("fail");
+						}
 
 		// Password must be between 8 and 25 characters
 		else if (password.Length < PASSWORD_MIN || password.Length > PASSWORD_MAX) {
-			print("fail");
-		}
+								print("fail");
+							}
 
 		// TODO: More checks for password
 
 
 		else {
-			print("success");
-		}
+								print("success");
+							}
 	}
 
 
