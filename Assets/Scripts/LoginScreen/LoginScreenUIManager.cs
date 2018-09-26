@@ -8,10 +8,16 @@ using System.IO;
 
 public class LoginScreenUIManager : MonoBehaviour {
 	/* Public UI items to make it possible to attach from editor */
+	[Space][Space]
 	public Dropdown languageSelectionDropdown;
+	[Space][Space]
 	public GameObject registerPanel;
 	public GameObject loginPanel;
 	public GameObject rememberPanel;
+	[Space][Space]
+	public InputField registerMail;
+	public InputField registerMailConfirm;
+	public InputField registerPassword;
 
 
 
@@ -41,12 +47,11 @@ public class LoginScreenUIManager : MonoBehaviour {
 
 
 		// Getting InputField strings to local variables
-		InputField[] fields = FindObjectsOfType<InputField>();
-		email = fields[EMAIL_INDEX].text.ToLower();
-		password = fields[PASSWORD_INDEX].text.ToLower();
-		emailConfirm = fields[CONFIRMATION_INDEX].text.ToLower();
+		email = registerMail.text.ToLower();
+		password = registerPassword.text.ToLower();
+		emailConfirm = registerMailConfirm.text.ToLower();
 
-		// Calling propriate function from manager
+		// Calling appropriate function from scene manager
 		LoginScreenManager.singleton.SignUp(email, emailConfirm, password);
 	}
 

@@ -8,6 +8,11 @@ public class LoginScreenManager : MonoBehaviour {
 	public static LoginScreenManager singleton = null;
 	public PopUpPanel popUpPanel;
 
+	// Constant definitions
+	const string LANGUAGE_LABEL_INVALID_EMAIL = "invalid-email";
+	const string LANGUAGE_LABEL_UNMATCHING_EMAIL = "unmatching-email";
+	const string LANGUAGE_LABEL_INVALID_PASSWORD = "invalid-password";
+
 
 
 	void Awake() {
@@ -26,56 +31,91 @@ public class LoginScreenManager : MonoBehaviour {
 		
 	}
 
-
+	//
 
 	/*  */
 	public void SignUp(string email, string emailConfirm, string password) {
-		const int PASSWORD_MIN = 8;
-		const int PASSWORD_MAX = 25;
-		const string AT_CHARACTER = "@";
-		const string REQUIRED_CHAR_2 = ".";
-
-
-		// Validating mail and password format
-		// There must be only one '@' character for a valid mail address
-		if (!email.Contains(AT_CHARACTER) || email.IndexOf(AT_CHARACTER) != email.LastIndexOf(AT_CHARACTER)) {
-			if (!popUpPanel.Online())
-				popUpPanel.SetText("deneme").SetColor(Color.cyan).Activate();
-			//GameObject.Instantiate ("PopUpPanel");
-			print("fail");
-		}
-
-		// There must be only one '.' character for a valid mail address
-		else if (!email.Contains(REQUIRED_CHAR_2) || email.IndexOf(REQUIRED_CHAR_2) != email.LastIndexOf(REQUIRED_CHAR_2)) {
-				print("fail");
+		// Validating mail
+		if (!IsMailValid(email)) {
+			if (!popUpPanel.IsAnimating()) {
+				popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_INVALID_EMAIL)).SetColor(Color.white).SetBackgroundColor(Color.grey).Activate();
 			}
-
-		// '.' character can not be behind the '@' character in a mail address
-		else if (email.LastIndexOf(REQUIRED_CHAR_2) < email.IndexOf(AT_CHARACTER)) {
-					print("fail");
-				}
-
-		// '.' character can not be at the end of address
-		else if (email.EndsWith(REQUIRED_CHAR_2)) {
-						print("fail");
-					}
+		}
 
 		// Emails must be equal
 		else if (!email.Equals(emailConfirm)) {
-							print("fail");
-						}
+			if (!popUpPanel.IsAnimating()) {
+				popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_UNMATCHING_EMAIL)).SetColor(Color.white).SetBackgroundColor(Color.grey).Activate();
+			}
+		}
 
-		// Password must be between 8 and 25 characters
-		else if (password.Length < PASSWORD_MIN || password.Length > PASSWORD_MAX) {
-								print("fail");
-							}
-
-		// TODO: More checks for password
+		// Validating password
+		else if (!IsPasswordValid(password)) {
+			if (!popUpPanel.IsAnimating()) {
+				popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_INVALID_PASSWORD)).SetColor(Color.white).SetBackgroundColor(Color.grey).Activate();
+			}
+		}
 
 
 		else {
-								print("success");
-							}
+			print("success");
+		}
+	}
+
+
+
+	/* Email validator */
+	private bool IsMailValid(string email) {
+		// Constant definitions for email address check
+		const string AT_CHARACTER = "@";
+		const string DOT_CHARACTER = ".";
+
+
+		// There must be only one "@" character that is not at the beginning
+		if (!email.Contains(AT_CHARACTER) || email.IndexOf(AT_CHARACTER) != email.LastIndexOf(AT_CHARACTER) || email.StartsWith(AT_CHARACTER)) {
+			return false;
+		}
+
+		// There must be only one '.' character that is not at the end
+		else if (!email.Contains(DOT_CHARACTER) || email.IndexOf(DOT_CHARACTER) != email.LastIndexOf(DOT_CHARACTER) || email.EndsWith(DOT_CHARACTER)) {
+			return false;
+		}
+
+		// '.' character can not be behind the '@' character in a mail address
+		else if (email.LastIndexOf(DOT_CHARACTER) < email.IndexOf(AT_CHARACTER)) {
+			return false;
+		}
+
+		// There must be a domain name between "@" and "." characters
+		else if (email.IndexOf(AT_CHARACTER)+1 == email.IndexOf(DOT_CHARACTER)) {
+			return false;
+		} 
+
+		// If email passed from all checks then return true
+		else {
+			return true;
+		}
+	}
+
+
+
+	/* Password validator */
+	private bool IsPasswordValid(string password) {
+		// Constant definitions for password check
+		const int PASSWORD_MIN = 8;
+		const int PASSWORD_MAX = 25;
+
+
+		// Password must be between 8 and 25 characters
+		if (password.Length < PASSWORD_MIN || password.Length > PASSWORD_MAX) {
+			return false;
+		}
+
+		// TODO: More checks for password
+
+		else {
+			return true;
+		}
 	}
 
 

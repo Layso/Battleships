@@ -33,7 +33,18 @@ public class LanguageHandler : MonoBehaviour {
 
 	/* Function to read language file and obtain json data as local object */
 	private void ReadFile() {
-		string path = Path.Combine(Application.streamingAssetsPath, Global.LANGUAGE_FOLDER_NAME);
+		string path = null;
+
+		// TODO: Fix the Android location problem, streaming assets can't found currently
+		if (Application.platform == RuntimePlatform.Android) {
+			path = Path.Combine("jar:file://" + Application.dataPath + "!assets/", Global.LANGUAGE_FOLDER_NAME);
+		}
+
+		else {
+			path = Path.Combine(Application.streamingAssetsPath, Global.LANGUAGE_FOLDER_NAME);
+		}
+
+
 		string[] files = Directory.GetFiles(path);
 		string data;
 
@@ -62,7 +73,7 @@ public class LanguageHandler : MonoBehaviour {
 
 
 		/* Return null if nothing found */
-		return null;
+		return "null";
 	}
 
 

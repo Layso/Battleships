@@ -67,6 +67,20 @@
 		{
 			"Label" : "navigation-rememberence",
 			"Text" : "Parola Sıfırla"
+		},
+		
+		
+		{
+			"Label" : "invalid-email",
+			"Text" : "Lütfen gerçek bir e-posta adresi girin"
+		},
+		{
+			"Label" : "unmatching-email",
+			"Text" : "Lütfen e-posta adreslerinizin eşleştiğinden emin oldun"
+		},
+		{
+			"Label" : "invalid-password",
+			"Text" : "Lütfen aşağıdaki kurallara uygun bir şifre belirleyin:\n* 8-25 karakter\n* Büyük ve küçük harfler içeren\n* Bu karakterleri de içerebilir: _ - * . /"
 		}
 	]
  }

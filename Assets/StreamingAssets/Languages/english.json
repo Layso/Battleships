@@ -68,6 +68,20 @@
 		{
 			"Label" : "navigation-rememberence",
 			"Text" : "Reset Pass"
+		},
+		
+		
+		{
+			"Label" : "invalid-email",
+			"Text" : "Please enter a valid e-mail address"
+		},
+		{
+			"Label" : "unmatching-email",
+			"Text" : "Please make sure your e-mails are same"
+		},
+		{
+			"Label" : "invalid-password",
+			"Text" : "Please enter a password with following rules:\n* 8-25 character long\n* Including upper and downcase letters\n* Can include this characters: _ - * . /"
 		}
 	]
  }

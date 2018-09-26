@@ -22,14 +22,11 @@ public class PopUpPanel : MonoBehaviour {
 
 	// Use this for initialization
 	void Start() {
-		timer = 0;
-		active = false;
-		fadeIn = false;
-		fadeOut = false;
 		showDuration = DEFAULT_SHOW_DURATION;
 		shadeDuration = DEFAULT_SHADE_DURATION;
 		panel = gameObject.transform.GetChild(CHILD_PANEL_TRANSFORM_INDEX).GetComponent<Image>();
 		text = panel.transform.GetChild(CHILD_TEXT_TRANSFORM_INDEX).GetComponent<Text>();
+		Deactivate();
 	}
 	
 	// Update is called once per frame
@@ -37,7 +34,7 @@ public class PopUpPanel : MonoBehaviour {
 		if (active) {
 			if (fadeIn) {
 				float alpha = Mathf.Lerp(0, 1, timer * shadeDuration);
-				text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
+				text.color = new Color(text.color.r, text.color.g, text.color.b, alpha*2);
 				panel.color = new Color(panel.color.r, panel.color.g, panel.color.b, alpha);
 				timer += Time.deltaTime;
 
@@ -59,13 +56,12 @@ public class PopUpPanel : MonoBehaviour {
 
 			else if (fadeOut) {
 				float alpha = Mathf.Lerp(1, 0, timer * shadeDuration);
-				text.color = new Color(text.color.r, text.color.g, text.color.b, alpha);
+				text.color = new Color(text.color.r, text.color.g, text.color.b, alpha/2);
 				panel.color = new Color(panel.color.r, panel.color.g, panel.color.b, alpha);
 				timer += Time.deltaTime;
 
 				if (alpha == 0) {
-					active = false;
-					fadeOut = false;
+					Deactivate();
 				}
 			}
 		}
@@ -73,9 +69,11 @@ public class PopUpPanel : MonoBehaviour {
 
 
 	public void Click() {
-		timer = 0;
-		fadeIn = false;
-		fadeOut = true;
+		if (!fadeOut) {
+			timer = 0;
+			fadeIn = false;
+			fadeOut = true;
+		}
 	}
 
 
@@ -87,7 +85,14 @@ public class PopUpPanel : MonoBehaviour {
 
 
 	public PopUpPanel SetColor(Color newColor) {
-		text.color = newColor;
+		text.color = new Color(newColor.r, newColor.g, newColor.b, text.color.a);
+		return this;
+	}
+
+
+
+	public PopUpPanel SetBackgroundColor(Color newColor) {
+		panel.color = new Color(newColor.r, newColor.g, newColor.b, panel.color.a);
 		return this;
 	}
 
@@ -106,17 +111,24 @@ public class PopUpPanel : MonoBehaviour {
 		active = true;
 		fadeIn = true;
 		fadeOut = false;
+		gameObject.SetActive(true);
 		return this;
 	}
 
 
 
 	public PopUpPanel Deactivate() {
-		Destroy(gameObject);
+		timer = 0;
+		active = false;
+		fadeIn = false;
+		fadeOut = false;
+		gameObject.SetActive(false);
 		return this;
 	}
 
-	public bool Online() {
+
+
+	public bool IsAnimating() {
 		return active;
 	}
 }
