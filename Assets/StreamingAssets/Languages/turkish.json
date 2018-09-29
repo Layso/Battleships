@@ -80,7 +80,25 @@
 		},
 		{
 			"Label" : "invalid-password",
-			"Text" : "Lütfen aşağıdaki kurallara uygun bir şifre belirleyin:\n* 8-25 karakter\n* Büyük ve küçük harfler içeren\n* Bu karakterleri de içerebilir: _ - * . /"
+			"Text" : "Lütfen aşağıdaki kurallara uygun bir şifre belirleyin:\n* 5-25 karakter\n* Büyük ve küçük harfler içeren\n* Bu karakterleri de içerebilir: @%+/!#$?*.-_"
+		},
+		
+		
+		{
+			"Label" : "existing-credentials",
+			"Text" : "Bu e-posta adresi zaten kullanılıyor. Lütfen giriş yapın veya farklı bir adres deneyin"
+		},
+		{
+			"Label" : "connection-error",
+			"Text" : "Bağlantı hatası!\nLütfen internet bağlantınızı kontrol edin"
+		},
+		{
+			"Label" : "non-existing-email",
+			"Text" : "Bu e-posta adresine bağlı bir hesap bulunamadı"
+		},
+		{
+			"Label" : "wrong-credentials",
+			"Text" : "E-posta veya şifre hatalı"
 		}
 	]
  }

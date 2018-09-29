@@ -5,16 +5,27 @@ using UnityEngine;
 
 
 public class LoginScreenManager : MonoBehaviour {
+	// One instance to rule them all
 	public static LoginScreenManager singleton = null;
+
+	// 
 	public PopUpPanel popUpPanel;
 
 	// Constant definitions
 	const string LANGUAGE_LABEL_INVALID_EMAIL = "invalid-email";
 	const string LANGUAGE_LABEL_UNMATCHING_EMAIL = "unmatching-email";
 	const string LANGUAGE_LABEL_INVALID_PASSWORD = "invalid-password";
+	const string LANGUAGE_LABEL_WRONG_CREDENTIALS = "wrong-credentials";
+	const string LANGUAGE_LABEL_EXISTING_CREDENTIALS = "existing-credentials";
+	const string LANGUAGE_LABEL_CONNECTION_ERROR = "connection-error";
+	const string LANGUAGE_LABEL_NON_EXISTING_EMAIL = "non-existing-email";
+	const string PASSWORD_SPECIAL_CHARACTERS = "@%+/!#$?*.-_";
+	const int PASSWORD_MIN = 5;
+	const int PASSWORD_MAX = 25;
 
 
 
+	/* Assigning singleton at Awake() to be ready at Start() */
 	void Awake() {
 		if (singleton == null)
 			singleton = this;
@@ -25,40 +36,98 @@ public class LoginScreenManager : MonoBehaviour {
 	// Use this for initialization
 	void Start() {
 	}
-	
+
 	// Update is called once per frame
 	void Update() {
-		
+
 	}
 
-	//
 
-	/*  */
+
+	/* Function to validate emails and password to continue with registering new account */
 	public void SignUp(string email, string emailConfirm, string password) {
 		// Validating mail
 		if (!IsMailValid(email)) {
-			if (!popUpPanel.IsAnimating()) {
-				popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_INVALID_EMAIL)).SetColor(Color.white).SetBackgroundColor(Color.grey).Activate();
-			}
+			popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_INVALID_EMAIL)).SetColor(Color.white).SetBackgroundColor(Color.grey).SetAlignment(TextAnchor.MiddleCenter).Activate();
 		}
 
 		// Emails must be equal
 		else if (!email.Equals(emailConfirm)) {
-			if (!popUpPanel.IsAnimating()) {
-				popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_UNMATCHING_EMAIL)).SetColor(Color.white).SetBackgroundColor(Color.grey).Activate();
-			}
+			popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_UNMATCHING_EMAIL)).SetColor(Color.white).SetBackgroundColor(Color.grey).SetAlignment(TextAnchor.MiddleCenter).Activate();
 		}
 
 		// Validating password
 		else if (!IsPasswordValid(password)) {
-			if (!popUpPanel.IsAnimating()) {
-				popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_INVALID_PASSWORD)).SetColor(Color.white).SetBackgroundColor(Color.grey).Activate();
+			popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_INVALID_PASSWORD)).SetColor(Color.white).SetBackgroundColor(Color.grey).SetAlignment(TextAnchor.MiddleLeft).Activate();
+		} 
+		
+		// If no errors, try to register new account to database
+		else {
+			DatabaseManager.LoginScreenStatus status = DatabaseManager.singleton.Register(email, password);
+
+
+			// If registeration is succesfull, automatically login to account
+			if (status == DatabaseManager.LoginScreenStatus.Succesfull) {
+				LogIn(email, password);
+			}
+
+			// If failed, show error message according to error reason
+			else if (status == DatabaseManager.LoginScreenStatus.CredentialError) {
+				popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_EXISTING_CREDENTIALS)).SetColor(Color.white).SetBackgroundColor(Color.red).Activate();
+			} else if (status == DatabaseManager.LoginScreenStatus.ConnectionError) {
+				popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_CONNECTION_ERROR)).SetColor(Color.white).SetBackgroundColor(Color.red).Activate();
 			}
 		}
+	}
 
 
+
+	/* Function to validate mail and password to try connecting with the database */
+	public void LogIn(string email, string password) {
+		// Checking mail and password locally to be sure they are valid before connecting to internet
+		if (!IsMailValid(email) || !IsPasswordValid(password)) {
+			popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_WRONG_CREDENTIALS)).SetColor(Color.white).SetBackgroundColor(Color.grey).SetAlignment(TextAnchor.MiddleCenter).Activate();
+		}
+
+		// If credentials are valid then check with database entries
 		else {
-			print("success");
+			DatabaseManager.LoginScreenStatus status = DatabaseManager.singleton.LogIn(email, password);
+
+
+			// If login is succesfull, load next scene
+			if (status == DatabaseManager.LoginScreenStatus.Succesfull) {
+				// TODO
+				// Get every information needed for account
+				// Load next scene
+			}
+			
+			// If failed, show error message accordin to error reason
+			else if (status == DatabaseManager.LoginScreenStatus.CredentialError) {
+				popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_WRONG_CREDENTIALS)).SetColor(Color.white).SetBackgroundColor(Color.red).Activate();
+			} else if (status == DatabaseManager.LoginScreenStatus.ConnectionError) {
+				popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_CONNECTION_ERROR)).SetColor(Color.white).SetBackgroundColor(Color.red).Activate();
+
+				// TODO
+				// Open a new panel asking to continue offline or retry connection
+			}
+		}
+	}
+
+
+
+	/* Function to validate mail to reset password and sent to user */
+	public void ResetPassword(string email) {
+		// Checking mail locally to be sure they are valid before connecting to internet
+		if (!IsMailValid(email)) {
+			popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_NON_EXISTING_EMAIL)).SetColor(Color.white).SetBackgroundColor(Color.grey).SetAlignment(TextAnchor.MiddleCenter).Activate();
+		}
+
+		// If credentials are valid then check with database entries
+		else {
+			// TODO
+			// Check the email if that exist on the database
+			// If exists change passowrd and send new password to mail
+			// Else print error message
 		}
 	}
 
@@ -87,9 +156,9 @@ public class LoginScreenManager : MonoBehaviour {
 		}
 
 		// There must be a domain name between "@" and "." characters
-		else if (email.IndexOf(AT_CHARACTER)+1 == email.IndexOf(DOT_CHARACTER)) {
+		else if (email.IndexOf(AT_CHARACTER) + 1 == email.IndexOf(DOT_CHARACTER)) {
 			return false;
-		} 
+		}
 
 		// If email passed from all checks then return true
 		else {
@@ -101,34 +170,27 @@ public class LoginScreenManager : MonoBehaviour {
 
 	/* Password validator */
 	private bool IsPasswordValid(string password) {
-		// Constant definitions for password check
-		const int PASSWORD_MIN = 8;
-		const int PASSWORD_MAX = 25;
-
-
-		// Password must be between 8 and 25 characters
+		// Password must be between 5 and 25 characters
 		if (password.Length < PASSWORD_MIN || password.Length > PASSWORD_MAX) {
 			return false;
 		}
 
-		// TODO: More checks for password
+		// Password must include one upper and one lower case character
+		else if (password.ToLower().Equals(password) || password.ToUpper().Equals(password)) {
+			return false;
+		}
 
+		// Password should only include alphanumeric characters and valid special characters
 		else {
+			// Return false if an unknown character has found
+			foreach (char ch in password) {
+				if (!char.IsLetterOrDigit(ch) && !PASSWORD_SPECIAL_CHARACTERS.Contains(ch.ToString())) {
+					return false;
+				}
+			}
+
+			// Return true if all checks are passed
 			return true;
 		}
-	}
-
-
-
-	/* TODO */
-	public void LogIn(string email, string password) {
-		print("LogIn with ID:" + email + " Pass:" + password);
-	}
-
-
-
-	/* TODO */
-	public void RememberPass(string email) {
-		print("Sending information message to:" + email);
 	}
 }

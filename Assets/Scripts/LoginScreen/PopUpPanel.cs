@@ -14,10 +14,15 @@ public class PopUpPanel : MonoBehaviour {
 	Image panel;
 
 	// Constant definitions
+	const int HALF = 2;
+	const int DOUBLE = 2;
+	const int VISIBLE = 1;
+	const int INVISIBLE = 0;
 	const int CHILD_TEXT_TRANSFORM_INDEX = 0;
 	const int CHILD_PANEL_TRANSFORM_INDEX = 0;
 	const float DEFAULT_SHOW_DURATION = 3f;
 	const float DEFAULT_SHADE_DURATION = 1.5f;
+
 
 
 	// Use this for initialization
@@ -33,12 +38,12 @@ public class PopUpPanel : MonoBehaviour {
 	void Update() {
 		if (active) {
 			if (fadeIn) {
-				float alpha = Mathf.Lerp(0, 1, timer * shadeDuration);
-				text.color = new Color(text.color.r, text.color.g, text.color.b, alpha*2);
+				float alpha = Mathf.Lerp(INVISIBLE, VISIBLE, timer * shadeDuration);
+				text.color = new Color(text.color.r, text.color.g, text.color.b, alpha*DOUBLE);
 				panel.color = new Color(panel.color.r, panel.color.g, panel.color.b, alpha);
 				timer += Time.deltaTime;
 
-				if (alpha == 1) {
+				if (alpha == VISIBLE) {
 					timer = 0;
 					fadeIn = false;
 					fadeOut = false;
@@ -55,12 +60,12 @@ public class PopUpPanel : MonoBehaviour {
 			}
 
 			else if (fadeOut) {
-				float alpha = Mathf.Lerp(1, 0, timer * shadeDuration);
-				text.color = new Color(text.color.r, text.color.g, text.color.b, alpha/2);
+				float alpha = Mathf.Lerp(VISIBLE, INVISIBLE, timer * shadeDuration);
+				text.color = new Color(text.color.r, text.color.g, text.color.b, alpha/HALF);
 				panel.color = new Color(panel.color.r, panel.color.g, panel.color.b, alpha);
 				timer += Time.deltaTime;
 
-				if (alpha == 0) {
+				if (alpha == INVISIBLE) {
 					Deactivate();
 				}
 			}
@@ -68,6 +73,8 @@ public class PopUpPanel : MonoBehaviour {
 	}
 
 
+
+	/* Function to perform fade out on click */
 	public void Click() {
 		if (!fadeOut) {
 			timer = 0;
@@ -77,41 +84,17 @@ public class PopUpPanel : MonoBehaviour {
 	}
 
 
-	public PopUpPanel SetText(string newText) {
-		text.text = newText;
-		return this;
-	}
 
-
-
-	public PopUpPanel SetColor(Color newColor) {
-		text.color = new Color(newColor.r, newColor.g, newColor.b, text.color.a);
-		return this;
-	}
-
-
-
-	public PopUpPanel SetBackgroundColor(Color newColor) {
-		panel.color = new Color(newColor.r, newColor.g, newColor.b, panel.color.a);
-		return this;
-	}
-
-
-
-	public PopUpPanel SetSize(int newSize) {
-		text.resizeTextForBestFit = false;
-		text.fontSize = newSize;
-		return this;
-	}
-
-
-
+	/* Functions to control or check the pop-up behaviour */
 	public PopUpPanel Activate() {
-		timer = 0;
-		active = true;
-		fadeIn = true;
-		fadeOut = false;
-		gameObject.SetActive(true);
+		if (!active) {
+			timer = 0;
+			active = true;
+			fadeIn = true;
+			fadeOut = false;
+			gameObject.SetActive(true);
+		}
+
 		return this;
 	}
 
@@ -123,6 +106,7 @@ public class PopUpPanel : MonoBehaviour {
 		fadeIn = false;
 		fadeOut = false;
 		gameObject.SetActive(false);
+
 		return this;
 	}
 
@@ -130,5 +114,47 @@ public class PopUpPanel : MonoBehaviour {
 
 	public bool IsAnimating() {
 		return active;
+	}
+
+
+
+	/* Functions to customize the pop-up panel */
+	public PopUpPanel SetAlignment(TextAnchor newAlignment) {
+		text.alignment = newAlignment;
+
+		return this;
+	}
+
+
+
+	public PopUpPanel SetText(string newText) {
+		text.text = newText;
+
+		return this;
+	}
+
+
+
+	public PopUpPanel SetColor(Color newColor) {
+		text.color = new Color(newColor.r, newColor.g, newColor.b, text.color.a);
+
+		return this;
+	}
+
+
+
+	public PopUpPanel SetBackgroundColor(Color newColor) {
+		panel.color = new Color(newColor.r, newColor.g, newColor.b, panel.color.a);
+
+		return this;
+	}
+
+
+
+	public PopUpPanel SetSize(int newSize) {
+		text.resizeTextForBestFit = false;
+		text.fontSize = newSize;
+
+		return this;
 	}
 }

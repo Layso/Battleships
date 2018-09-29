@@ -18,6 +18,11 @@ public class LoginScreenUIManager : MonoBehaviour {
 	public InputField registerMail;
 	public InputField registerMailConfirm;
 	public InputField registerPassword;
+	[Space][Space]
+	public InputField loginMail;
+	public InputField loginPassword;
+	[Space][Space]
+	public InputField resetMail;
 
 
 
@@ -25,11 +30,6 @@ public class LoginScreenUIManager : MonoBehaviour {
 	void Start() {
 		ChangeLanguage();
 		WelcomeScreen();
-	}
-	
-	// Update is called once per frame
-	void Update() {
-		
 	}
 
 
@@ -40,15 +40,10 @@ public class LoginScreenUIManager : MonoBehaviour {
 		string password;
 		string emailConfirm;
 
-		// Constant definitions
-		const int EMAIL_INDEX = 0;
-		const int CONFIRMATION_INDEX = 1;
-		const int PASSWORD_INDEX = 2;
-
 
 		// Getting InputField strings to local variables
+		password = registerPassword.text;
 		email = registerMail.text.ToLower();
-		password = registerPassword.text.ToLower();
 		emailConfirm = registerMailConfirm.text.ToLower();
 
 		// Calling appropriate function from scene manager
@@ -62,15 +57,10 @@ public class LoginScreenUIManager : MonoBehaviour {
 		string email;
 		string password;
 
-		// Constant definitions
-		const int EMAIL_INDEX = 0;
-		const int PASSWORD_INDEX = 1;
-
 
 		// Getting InputField strings to local variables
-		InputField[] fields = FindObjectsOfType<InputField>();
-		email = fields[EMAIL_INDEX].text.ToLower();
-		password = fields[PASSWORD_INDEX].text.ToLower();
+		email = loginMail.text.ToLower();
+		password = loginPassword.text;
 
 		// Calling propriate function from manager
 		LoginScreenManager.singleton.LogIn(email, password);
@@ -82,28 +72,24 @@ public class LoginScreenUIManager : MonoBehaviour {
 	public void PasswordResetButton() {
 		string email;
 
-		// Constant definitions
-		const int EMAIL_INDEX = 0;
-
 
 		// Getting InputField strings to local variables
-		InputField[] fields = FindObjectsOfType<InputField>();
-		email = fields[EMAIL_INDEX].text.ToLower();
+		email = resetMail.text.ToLower();
 
 		// Calling propriate function from manager
-		LoginScreenManager.singleton.RememberPass(email);
+		LoginScreenManager.singleton.ResetPassword(email);
 	}
 
 
 
 	/* Function to change language upon a change on language selection dropdown */
 	public void ChangeLanguage() {
-		/* Changing current language and getting all Language Label objects to change their texts */
+		// Changing current language and getting all Language Label objects to change their texts
 		LanguageHandler.ChangeLanguage(languageSelectionDropdown.options[languageSelectionDropdown.value].text);
 		LanguageLabel[] labels = Resources.FindObjectsOfTypeAll<LanguageLabel>();
 
 
-		/* Updating each label */
+		// Updating each label
 		foreach (LanguageLabel label in labels) {
 			label.UpdateLabel();
 		}
@@ -111,9 +97,21 @@ public class LoginScreenUIManager : MonoBehaviour {
 
 
 
+	/* Function to clear input field texts */
+	public void ClearInputFields() {
+		registerMail.text = string.Empty;
+		registerMailConfirm.text = string.Empty;
+		registerPassword.text = string.Empty;
+		loginMail.text = string.Empty;
+		loginPassword.text = string.Empty;
+		resetMail.text = string.Empty;
+	}
+
+
+
 	/* Function to decide welcoming panel */
 	public void WelcomeScreen() {
-		/* Search for log file to see if there is any previous login attempts */
+		// Search for log file to see if there is any previous login attempts
 		if (File.Exists(Global.LOG_FILE_NAME)) {
 			loginPanel.SetActive(true);
 			registerPanel.SetActive(false);

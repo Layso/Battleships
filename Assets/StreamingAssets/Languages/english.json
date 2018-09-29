@@ -81,7 +81,25 @@
 		},
 		{
 			"Label" : "invalid-password",
-			"Text" : "Please enter a password with following rules:\n* 8-25 character long\n* Including upper and downcase letters\n* Can include this characters: _ - * . /"
+			"Text" : "Please enter a password with following rules:\n* 8-25 character long\n* Including upper and downcase letters\n* Can also include this characters: @%+/!#$?*.-_"
+		},
+		
+		
+		{
+			"Label" : "existing-credentials",
+			"Text" : "This e-mail is already being used. Try logging in or try with another e-mail address"
+		},
+		{
+			"Label" : "connection-error",
+			"Text" : "Connection error!\nPlease check your connection"
+		},
+		{
+			"Label" : "non-existing-email",
+			"Text" : "No account found related to this e-mail address"
+		},
+		{
+			"Label" : "wrong-credentials",
+			"Text" : "E-Mail or password is wrong"
 		}
 	]
  }
