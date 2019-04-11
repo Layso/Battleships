@@ -47,7 +47,7 @@ public class LoginScreenUIManager : MonoBehaviour {
 		emailConfirm = registerMailConfirm.text.ToLower();
 
 		// Calling appropriate function from scene manager
-		LoginScreenManager.singleton.SignUp(email, emailConfirm, password);
+		LoginScreenManager.instance.SignUp(email, emailConfirm, password);
 	}
 
 
@@ -63,7 +63,7 @@ public class LoginScreenUIManager : MonoBehaviour {
 		password = loginPassword.text;
 
 		// Calling propriate function from manager
-		LoginScreenManager.singleton.LogIn(email, password);
+		LoginScreenManager.instance.LogIn(email, password);
 	}
 
 
@@ -77,7 +77,7 @@ public class LoginScreenUIManager : MonoBehaviour {
 		email = resetMail.text.ToLower();
 
 		// Calling propriate function from manager
-		LoginScreenManager.singleton.ResetPassword(email);
+		LoginScreenManager.instance.ResetPassword(email);
 	}
 
 

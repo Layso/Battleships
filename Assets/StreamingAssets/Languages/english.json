@@ -100,6 +100,36 @@
 		{
 			"Label" : "wrong-credentials",
 			"Text" : "E-Mail or password is wrong"
+		},
+
+
+		{
+			"Label" : "chat-nick-placeholder",
+			"Text" : "Set your nick..."
+		},
+		{
+			"Label" : "chat-nick-button",
+			"Text" : "Change"
+		},
+		{
+			"Label" : "chat-screen-title",
+			"Text" : "Chat Screen"
+		},
+		{
+			"Label" : "chat-message-placeholder",
+			"Text" : "Type your message..."
+		},
+		{
+			"Label" : "chat-send-button",
+			"Text" : "Send"
+		},
+		{
+			"Label" : "invalid-chat-nick",
+			"Text" : "Please set your nick before sending messages"
+		},
+		{
+			"Label" : "chat-nick-updated",
+			"Text" : "You changed your nick!"
 		}
 	]
  }

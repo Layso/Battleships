@@ -99,6 +99,36 @@
 		{
 			"Label" : "wrong-credentials",
 			"Text" : "E-posta veya şifre hatalı"
+		},
+
+
+		{
+			"Label" : "chat-nick-placeholder",
+			"Text" : "Nick değiştirin..."
+		},
+		{
+			"Label" : "chat-nick-button",
+			"Text" : "Değiştir"
+		},
+		{
+			"Label" : "chat-screen-title",
+			"Text" : "Konuşma Ekranı"
+		},
+		{
+			"Label" : "chat-message-placeholder",
+			"Text" : "İletinizi girin..."
+		},
+		{
+			"Label" : "chat-send-button",
+			"Text" : "Gönder"
+		},
+		{
+			"Label" : "invalid-chat-nick",
+			"Text" : "Lütfen mesaj göndermeden önce nick belirleyin"
+		},
+		{
+			"Label" : "chat-nick-updated",
+			"Text" : "Nick'iniz değiştirildi!"
 		}
 	]
  }

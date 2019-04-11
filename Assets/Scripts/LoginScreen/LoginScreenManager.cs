@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 
 public class LoginScreenManager : MonoBehaviour {
 	// One instance to rule them all
-	public static LoginScreenManager singleton = null;
+	public static LoginScreenManager instance = null;
 
 	// 
 	public PopUpPanel popUpPanel;
@@ -27,8 +27,8 @@ public class LoginScreenManager : MonoBehaviour {
 
 	/* Assigning singleton at Awake() to be ready at Start() */
 	void Awake() {
-		if (singleton == null)
-			singleton = this;
+		if (instance == null)
+			instance = this;
 		else
 			Destroy(this);
 	}
@@ -50,12 +50,12 @@ public class LoginScreenManager : MonoBehaviour {
 		if (!IsMailValid(email)) {
 			popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_INVALID_EMAIL)).SetColor(Color.white).SetBackgroundColor(Color.grey).SetAlignment(TextAnchor.MiddleCenter).Activate();
 		}
-
+		
 		// Emails must be equal
 		else if (!email.Equals(emailConfirm)) {
 			popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_UNMATCHING_EMAIL)).SetColor(Color.white).SetBackgroundColor(Color.grey).SetAlignment(TextAnchor.MiddleCenter).Activate();
 		}
-
+		
 		// Validating password
 		else if (!IsPasswordValid(password)) {
 			popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_INVALID_PASSWORD)).SetColor(Color.white).SetBackgroundColor(Color.grey).SetAlignment(TextAnchor.MiddleLeft).Activate();
@@ -63,9 +63,9 @@ public class LoginScreenManager : MonoBehaviour {
 		
 		// If no errors, try to register new account to database
 		else {
-			DatabaseManager.LoginScreenStatus status = DatabaseManager.singleton.Register(email, password);
-
-
+			DatabaseManager.LoginScreenStatus status = DatabaseManager.instance.Register(email, password);
+			print("Annen");
+			
 			// If registeration is succesfull, automatically login to account
 			if (status == DatabaseManager.LoginScreenStatus.Succesfull) {
 				LogIn(email, password);
@@ -77,6 +77,7 @@ public class LoginScreenManager : MonoBehaviour {
 			} else if (status == DatabaseManager.LoginScreenStatus.ConnectionError) {
 				popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_CONNECTION_ERROR)).SetColor(Color.white).SetBackgroundColor(Color.red).Activate();
 			}
+			
 		}
 	}
 
@@ -91,14 +92,12 @@ public class LoginScreenManager : MonoBehaviour {
 
 		// If credentials are valid then check with database entries
 		else {
-			DatabaseManager.LoginScreenStatus status = DatabaseManager.singleton.LogIn(email, password);
+			DatabaseManager.LoginScreenStatus status = DatabaseManager.instance.LogIn(email, password);
 
 
 			// If login is succesfull, load next scene
 			if (status == DatabaseManager.LoginScreenStatus.Succesfull) {
-				// TODO
-				// Get every information needed for account
-				// Load next scene
+				SceneManager.LoadScene("Chat Scene");
 			}
 			
 			// If failed, show error message accordin to error reason
@@ -124,10 +123,21 @@ public class LoginScreenManager : MonoBehaviour {
 
 		// If credentials are valid then check with database entries
 		else {
-			// TODO
-			// Check the email if that exist on the database
-			// If exists change passowrd and send new password to mail
-			// Else print error message
+			DatabaseManager.LoginScreenStatus status = DatabaseManager.instance.ResetPassword(email);
+
+
+			if (status == DatabaseManager.LoginScreenStatus.Succesfull) {
+				// TODO
+				// Show an informative message
+				// Direct to login screen
+			}
+
+			// If failed, show error message according to error reason
+			else if (status == DatabaseManager.LoginScreenStatus.CredentialError) {
+				popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_NON_EXISTING_EMAIL)).SetColor(Color.white).SetBackgroundColor(Color.red).Activate();
+			} else if (status == DatabaseManager.LoginScreenStatus.ConnectionError) {
+				popUpPanel.SetText(LanguageHandler.GetLabel(LANGUAGE_LABEL_CONNECTION_ERROR)).SetColor(Color.white).SetBackgroundColor(Color.red).Activate();
+			}
 		}
 	}
 
