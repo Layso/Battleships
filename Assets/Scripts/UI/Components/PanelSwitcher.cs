@@ -48,7 +48,7 @@ public class PanelSwitcher : MonoBehaviour {
 	}
 
 	private void DisableCurrent() {
-		if (CurrentIndex > 0) {
+		if (CurrentIndex >= 0) {
 			ChildPanels[CurrentIndex].SetActive(false);
 		}
 	}
