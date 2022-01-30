@@ -78,5 +78,6 @@ crashlytics-build.properties
 /Assets/Parse
 /Assets/Parse.meta
 google-services-desktop.json
+google-services-desktop.json.meta
 
 
