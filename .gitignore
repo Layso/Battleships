@@ -65,3 +65,18 @@ crashlytics-build.properties
 # Folder that holds secret documents, variables etc
 /Assets/Secrets
 /Assets/Secrets.meta
+
+# Firebase related folders
+/Assets/Editor Default Resources
+/Assets/Editor Default Resources.meta
+/Assets/ExternalDependencyManager
+/Assets/ExternalDependencyManager.meta
+/Assets/Firebase
+/Assets/Firebase.meta
+/Assets/Plugins
+/Assets/Plugins.meta
+/Assets/Parse
+/Assets/Parse.meta
+google-services-desktop.json
+
+
