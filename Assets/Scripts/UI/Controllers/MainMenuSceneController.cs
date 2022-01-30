@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainMenuSceneController : MonoBehaviour {
 	void Start() {
-		//print(Firebase.Auth.FirebaseAuth.DefaultInstance.CurrentUser.UserId);
+		print(Firebase.Auth.FirebaseAuth.DefaultInstance.CurrentUser.UserId);
 	}
 
 	void Update() {
