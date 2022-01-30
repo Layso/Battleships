@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PanelSwitcher : MonoBehaviour {
+	public event Action<int, int> PanelSwitched;
 	public int Count { get { return ChildPanels.Count; } }
 
 	private int CurrentIndex;
@@ -13,8 +14,10 @@ public class PanelSwitcher : MonoBehaviour {
 	public void SwitchPanel(int Index) {
 		if (Index >= 0 && Index < ChildPanels.Count && Index != CurrentIndex) {
 			DisableCurrent();
+			int tempIndex = CurrentIndex;
 			CurrentIndex = Index;
 			ChildPanels[Index].SetActive(true);
+			PanelSwitched?.Invoke(tempIndex, Index);
 		}
 	}
 

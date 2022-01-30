@@ -61,3 +61,17 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+# Ignoring third party assets
+/Assets/ThirdParty
+/Assets/ThirdParty.meta
+
+# Folder that holds secret documents, variables etc
+/Assets/Secrets
+/Assets/Secrets.meta
+
+# Firebase related files
+/Assets/StreamingAssets/google-services-desktop.json
+/Assets/StreamingAssets/google-services-desktop.json.meta
+/Assets/Plugins/Android
+/Assets/Plugins/Android.meta
