@@ -80,4 +80,7 @@ crashlytics-build.properties
 google-services-desktop.json
 google-services-desktop.json.meta
 
+# Temp ignore for StreamingAssets
+/Assets/StreamingAssets
+/Assets/StreamingAssets.meta
 
